@@ -250,7 +250,7 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ template, cardData }) 
   };
 
   return (
-    <div className="relative z-10">
+    <div id="card-preview" className="relative z-10">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-3xl blur-2xl transform rotate-3 scale-105"></div>
       {getCardLayout(template, cardData)}
     </div>
