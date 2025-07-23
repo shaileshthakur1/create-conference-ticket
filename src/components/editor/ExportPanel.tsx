@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import { Download, Save } from 'lucide-react';
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 
 export const ExportPanel: React.FC = () => {
   const downloadAsPNG = async () => {
