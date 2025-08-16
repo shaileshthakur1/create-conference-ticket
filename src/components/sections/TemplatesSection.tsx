@@ -38,7 +38,6 @@ export const TemplatesSection = ({ onStartCreating }: TemplatesSectionProps) => 
     { id: 22, name: "Academic Elite", category: "Academic", preview: "bg-gradient-to-b from-blue-500 to-indigo-600", isPremium: true, downloads: 4830, rating: 4.6 },
     { id: 23, name: "Sports Elite", category: "Sports", preview: "bg-gradient-to-b from-red-500 to-rose-600", isPremium: true, downloads: 6420, rating: 4.8 },
     { id: 24, name: "Music Premium", category: "Music Festival", preview: "bg-gradient-to-b from-fuchsia-500 to-purple-600", isPremium: true, downloads: 5670, rating: 4.7 },
-    { id: 25, name: "Corporate Luxury", category: "Corporate", preview: "bg-gradient-to-b from-indigo-500 to-blue-600", isPremium: true, downloads: 7890, rating: 4.9 }
   ];
 
   const filteredTemplates = currentCategory === 'All' 
