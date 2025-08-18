@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import { HeroSection } from './sections/HeroSection';
 import { FeaturesSection } from './sections/FeaturesSection';
@@ -17,11 +16,20 @@ export const LandingPage = () => {
     navigate('/auth');
   };
 
+  const handleViewTemplates = () => {
+    const templatesSection = document.getElementById('templates-section');
+    if (templatesSection) {
+      templatesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <HeroSection onStartCreating={handleStartCreating} />
+      <HeroSection onStartCreating={handleStartCreating} onViewTemplates={handleViewTemplates} />
       <FeaturesSection />
-      <TemplatesSection onStartCreating={handleStartCreating} />
+      <div id="templates-section">
+        <TemplatesSection onStartCreating={handleStartCreating} />
+      </div>
       <PricingSection />
       <UseCasesSection />
       <AnalyticsSection />

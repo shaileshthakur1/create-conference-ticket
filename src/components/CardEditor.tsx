@@ -25,18 +25,35 @@ interface CardData {
 }
 
 export const CardEditor = () => {
-  const [cardData, setCardData] = useState<CardData>({
-    name: 'Sarah Johnson',
-    title: 'Senior Product Manager',
-    company: 'TechCorp Solutions',
-    eventName: 'TECH CONFERENCE 2024',
-    eventLocation: 'San Francisco, CA',
-    role: 'SPEAKER',
-    photo: null,
-    font: 'font-poppins',
-    backgroundColor: 'slate',
-    backgroundPattern: 'circles'
-  });
+  // Check for selected template from localStorage
+  const getInitialCardData = (): CardData => {
+    const savedTemplate = localStorage.getItem('selectedTemplate');
+    if (savedTemplate) {
+      try {
+        const template = JSON.parse(savedTemplate);
+        // Clear the localStorage after loading
+        localStorage.removeItem('selectedTemplate');
+        return template.cardData;
+      } catch (error) {
+        console.error('Failed to parse saved template:', error);
+      }
+    }
+    // Default card data if no template selected
+    return {
+      name: 'Sarah Johnson',
+      title: 'Senior Product Manager',
+      company: 'TechCorp Solutions',
+      eventName: 'TECH CONFERENCE 2024',
+      eventLocation: 'San Francisco, CA',
+      role: 'SPEAKER',
+      photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
+      font: 'font-poppins',
+      backgroundColor: 'slate',
+      backgroundPattern: 'circles'
+    };
+  };
+
+  const [cardData, setCardData] = useState<CardData>(getInitialCardData());
 
   const [selectedTemplate, setSelectedTemplate] = useState(0);
   const [activeTab, setActiveTab] = useState('edit');
